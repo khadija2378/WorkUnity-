@@ -9,8 +9,8 @@
 </head>
 <body>
     <nav class="flex justify-between shadow-lg p-4">
-        <span class="font-medium text-xl">WorkUnity</span>
-        <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"><i class="fa-solid fa-plus"></i>Ajouter</button>
+        <a href="{{ route('employees.index') }}" class="font-medium text-xl">WorkUnity</a>
+        <a href="{{ route('employees.add') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"><i class="fa-solid fa-plus"></i>Ajouter</a>
     </nav>
     <section class="m-10 space-y-10">
         <h1 class="text-center font-medium text-2xl">Application Gestion Des Employées</h1>
@@ -21,6 +21,9 @@
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
+                <th scope="col" class="px-6 py-3">
+                    Id
+                </th>
                 <th scope="col" class="px-6 py-3">
                     Name
                 </th>
@@ -43,28 +46,34 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+            @foreach ( $employees as $employee)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    {{ $employee->id }}
+                </th>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    {{ $employee->Name }}
                 </th>
                 <td class="px-6 py-4">
-                    Silver
+                    {{ $employee->Department }}
                 </td>
                 <td class="px-6 py-4">
-                    Laptop
+                    {{ $employee->Email }}
                 </td>
                 <td class="px-6 py-4">
-                    $2999
+                    {{ $employee->Phone }}
                 </td>
                 
                 <td class="px-6 py-4">
-                    $2999
+                    {{ $employee->Salary }}
                 </td>
                 <td class="px-6 py-4">
                     <button><i class="fa-solid fa-pen-to-square text-orange-300"></i></button>
                     <button><i class="fa-solid fa-trash text-red-600"></i></button>
                 </td>
             </tr>
+            @endforeach
+            
           
         </tbody>
     </table>

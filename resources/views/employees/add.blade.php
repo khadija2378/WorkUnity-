@@ -8,12 +8,12 @@
 </head>
 <body>
     <nav class="flex justify-between shadow-lg p-4">
-        <span class="font-medium text-xl">WorkUnity</span>
-        <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"><i class="fa-solid fa-plus"></i>Ajouter</button>
+        <a href="{{ route('employees.index') }}" class="font-medium text-xl">WorkUnity</a>
+        <a href="{{ route('employees.add') }}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"><i class="fa-solid fa-plus"></i>Ajouter</a>
     </nav>
     <section class="m-10 space-y-10">
         <h1  class="text-center font-medium text-2xl">Ajouter Employer</h1>
-<form action="{{ route('store') }}" method="POST" class="max-w-md mx-auto">
+<form action="{{ route('employees.store') }}" method="POST" class="max-w-md mx-auto">
     
     @csrf
     <div class="mb-5">
