@@ -68,8 +68,9 @@
                     {{ $employee->Salary }}
                 </td>
                 <td class="px-6 py-4">
-                    <button><i class="fa-solid fa-pen-to-square text-orange-300"></i></button>
-                    <button><i class="fa-solid fa-trash text-red-600"></i></button>
+                    <a href="{{ route('employees.edit',$employee->id) }}"><i class="fa-solid fa-pen-to-square text-orange-300"></i></a>
+                    <a href="{{ route('employees.destroy',$employee->id) }}"><i class="fa-solid fa-trash text-red-600"></i></a>
+                    
                 </td>
             </tr>
             @endforeach

@@ -46,7 +46,7 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        
     }
 
     /**
@@ -54,7 +54,7 @@ class EmployeeController extends Controller
      */
     public function edit(Employee $employee)
     {
-        //
+         return view("employees.modify", compact("employee"));
     }
 
     /**
@@ -62,7 +62,14 @@ class EmployeeController extends Controller
      */
     public function update(UpdateemployeeRequest $request, Employee $employee)
     {
-        //
+        $employee->update([
+        "name" => $request->name,
+        "department" => $request->department,
+        "email" => $request->email,
+        "phone" => $request->phone,
+        "salary" => $request->salary,
+        ]);
+        return redirect()->route('employees.index');
     }
 
     /**
@@ -70,6 +77,7 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        $employee->delete();
+        return redirect()->route('employees.index');
     }
 }
